@@ -1,22 +1,15 @@
 import './App.css';
 import MovieDetails from './pages/MovieDetails';
-import MoviesGrid from "./MoviesGrid";
 import { Link, Route, Routes } from "react-router-dom";
+import LandingPage from './pages/LandingPage';
 
 function App() {
   return (
     <div>
-      <h1>Cinema</h1>
-
-        <Link to="/">Home</Link>
-        <Link to="/movies">Movie</Link>
+        <Link to="/"><h1>Cinema</h1></Link>
       <Routes>
-
-
-        <Route path="/" element={ < MoviesGrid /> }/>
-        <Route path="/movies" element={ < MovieDetails /> }/>
-
-
+        <Route path="/" element={ < LandingPage /> }/>
+        <Route path="/movie/:movieId" element={ < MovieDetails /> }/>
       </Routes>
 
     </div>

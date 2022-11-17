@@ -34,9 +34,12 @@ h1{
   text-align: center;
   margin: 20px 0;
 	font-weight: 900;
-
   font-family: 'Cinema', sans-serif;
+}
 
+a{
+  color: #fff;
+  text-decoration: none;
 }
 
 *{

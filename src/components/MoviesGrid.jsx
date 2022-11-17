@@ -1,8 +1,8 @@
 import React from 'react'
-import { useState, useEffect } from "react";
-import axios from "axios";
 import MovieCard from "./MovieCard";
 import styles from "./MoviesGrid.module.css";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function MoviesGrid() {
 
@@ -22,6 +22,7 @@ function MoviesGrid() {
     }
     moviesResult();
   }, []);
+
   return (
     <div>
       <ul className={styles.moviesGrid}>

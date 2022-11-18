@@ -1,0 +1,32 @@
+.container{
+  width: 60vw;
+  margin: 0 auto;
+}
+
+.movieDescription{
+  display: flex;
+  padding: 10px;
+}
+
+.movieDescription img{
+  border-radius: 10px;
+  width: 500px;
+}
+
+.description{
+  margin-left: 30px;
+}
+
+.description h2{
+  margin: 20px 0;
+}
+
+.starsContainer{
+  display: flex;
+  margin: 10px 0;
+}
+
+.star{
+  margin: 2px;
+  font-size: 20px;
+}

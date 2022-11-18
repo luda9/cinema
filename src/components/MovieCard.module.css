@@ -7,6 +7,11 @@
 .movieImage{
   border-radius: 10px;
   background-color: #ccc;
+  transition: all 0.5s;
+}
+
+.movieImage:hover{
+  filter: grayscale(1);
 }
 
 .movieTitle{

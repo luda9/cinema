@@ -12,6 +12,7 @@ function MovieDetails() {
 
   const movieUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
 
+
   useEffect(() => {
 
     const fetchMovieDetails = async () => {
@@ -22,7 +23,7 @@ function MovieDetails() {
           'Content-Type': 'application/json;charset=utf-8'
         }
       } )
-      setMovie(result.data);
+      setMovie(await result.data);
     }
     fetchMovieDetails();
   }, []);
@@ -43,7 +44,7 @@ function MovieDetails() {
         <img className={styles.poster} src={imageUrl + movie.poster_path} alt={movie.title} />
         <div className={styles.description}>
           <h2>{movie.title}</h2>
-          {/* <small>{movie.genres.map((genre) => genre.name).join(', ')}</small> */}
+          {<p className={styles.genre}>{movie.genres && movie.genres.map((genre) => genre.name).join(', ')}</p>}
           <p>{movie.overview}</p>
           <div className={styles.starsContainer}>
             {starsResult.map((star) => (<p className={styles.star}>{star}</p>))}

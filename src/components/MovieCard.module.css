@@ -2,6 +2,8 @@
   list-style: none;
   font-size: 1rem;
   margin: 15px;
+  width: 300px;
+  height: 500px;
 }
 
 .movieImage{

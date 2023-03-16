@@ -15,6 +15,7 @@ function MovieDetails() {
 
   const movieUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
 
+
   useEffect(() => {
     setCargando(true)
 

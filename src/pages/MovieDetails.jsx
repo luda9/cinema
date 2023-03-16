@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./MovieDetails.module.css";
+import Spinner from '../components/Spinner';
 
 function MovieDetails() {
 
@@ -10,9 +11,12 @@ function MovieDetails() {
 
   const [ movie, setMovie ] = useState({});
 
+  const [cargando, setCargando] = useState(false)
+
   const movieUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
 
   useEffect(() => {
+    setCargando(true)
 
     const fetchMovieDetails = async () => {
 
@@ -23,11 +27,11 @@ function MovieDetails() {
         }
       } )
       setMovie(result.data);
+      setCargando(false)
     }
     fetchMovieDetails();
-  }, []);
 
-  console.log(movie)
+  }, []);
 
   const imageUrl = 'https://image.tmdb.org/t/p/w300'
 
@@ -40,15 +44,18 @@ function MovieDetails() {
   return (
     <div className={styles.container}>
       <div className={styles.movieDescription}>
-        <img className={styles.poster} src={imageUrl + movie.poster_path} alt={movie.title} />
-        <div className={styles.description}>
-          <h2>{movie.title}</h2>
-          {/* <small>{movie.genres.map((genre) => genre.name).join(', ')}</small> */}
-          <p>{movie.overview}</p>
-          <div className={styles.starsContainer}>
-            {starsResult.map((star) => (<p className={styles.star}>{star}</p>))}
-          </div>
-        </div>
+      {cargando ? <Spinner /> :
+          <>
+            <img className={styles.poster} src={imageUrl + movie.poster_path} alt={movie.title} />
+            <div className={styles.description}>
+              <h2>{movie.title}</h2>
+              <p>{movie.overview}</p>
+              <div className={styles.starsContainer}>
+                {starsResult.map((star) => (<p className={styles.star}>{star}</p>))}
+              </div>
+            </div>
+          </>
+          }
       </div>
     </div>
   )

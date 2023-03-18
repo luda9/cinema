@@ -10,6 +10,8 @@
   border-radius: 10px;
   background-color: #ccc;
   transition: all 0.5s;
+  height: 450px;
+  width: 300px;
 }
 
 .movieImage:hover{

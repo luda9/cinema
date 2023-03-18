@@ -1,9 +1,8 @@
-import React from 'react'
-import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./MovieDetails.module.css";
 import Spinner from '../components/Spinner';
+import { useParams } from "react-router";
 
 function MovieDetails() {
 
@@ -15,11 +14,10 @@ function MovieDetails() {
 
   const movieUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
 
-
   useEffect(() => {
     setCargando(true)
 
-    const fetchMovieDetails = async () => {
+    const fetchMovieDetails = async (movieUrl) => {
 
       const result = await axios.get(movieUrl, {
         headers: {
@@ -27,10 +25,10 @@ function MovieDetails() {
           'Content-Type': 'application/json;charset=utf-8'
         }
       } )
-      setMovie(result.data);
+      setMovie(Object.keys(result.data).length === 0 ? {} : result.data);
       setCargando(false)
     }
-    fetchMovieDetails();
+    fetchMovieDetails(movieUrl);
 
   }, []);
 
@@ -52,7 +50,7 @@ function MovieDetails() {
               <h2>{movie.title}</h2>
               <p>{movie.overview}</p>
               <div className={styles.starsContainer}>
-                {starsResult.map((star) => (<p className={styles.star}>{star}</p>))}
+                {starsResult.map((star, index) => (<p className={styles.star} key={index}>{star}</p>))}
               </div>
             </div>
           </>

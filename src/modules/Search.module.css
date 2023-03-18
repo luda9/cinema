@@ -1,0 +1,29 @@
+form{
+  display: flex;
+  justify-content: center;
+}
+
+.box{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.textlabel{
+  height: 30px;
+  width: 300px;
+  border: none;
+  border-radius: 5px;
+  padding: 0 40px 0 10px;
+}
+.icon{
+  right: 10px;
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.icon img{
+  height: 18px;
+}

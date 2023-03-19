@@ -8,7 +8,7 @@ function MovieCard( { movie } ) {
 
   return (
     <li className={styles.movieCard}>
-      < Link to={'/movie/' + movie.id} >
+      < Link to={'/cinema/movie/' + movie.id} >
       <img className={styles.movieImage} src={imageUrl} alt={movie.title} />
         <div className={styles.movieTitle}>
           <p>{movie.title}</p>

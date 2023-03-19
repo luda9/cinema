@@ -6,10 +6,10 @@ import LandingPage from './pages/LandingPage';
 function App() {
   return (
     <div>
-        <Link to="/"><h1>Cinema</h1></Link>
+        <Link to="/cinema"><h1>Cinema</h1></Link>
       <Routes>
-        <Route path="/" element={ < LandingPage /> }/>
-        <Route path="/movie/:movieId" element={ < MovieDetails /> }/>
+        <Route path="/cinema" element={ < LandingPage /> }/>
+        <Route path="/cinema/movie/:movieId" element={ < MovieDetails /> }/>
       </Routes>
 
     </div>

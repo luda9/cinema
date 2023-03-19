@@ -12,7 +12,7 @@ function Search() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    navigate("/?search=" + searched)
+    navigate("/cinema/?search=" + searched)
   };
 
   const search = useLocation().search
@@ -36,7 +36,7 @@ function Search() {
             onChange={(e) => setSearched(e.target.value)}
             />
           <button type="submit" className={styles.icon}>
-            <img src="/search.png" alt="search icon"/>
+          <img src={process.env.PUBLIC_URL + "/search.png"} alt="search icon"/>
           </button>
         </div>
       </form>
